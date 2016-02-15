@@ -1,0 +1,26 @@
+@import _normalize
+@import _variables
+@import _mixins
+
+html,
+body,
+main
+	height: 100%
+	background: $bgColor
+
+h1
+	text-align: center
+	font-family: $fontFamily
+
+.some-block
+	+border-radius(20px)
+	border: 1px solid $mainColor
+	max-width: 600px
+	margin: auto
+	padding: 10px
+	p
+		margin: 0
+		text-align: center
+		color: $mainColor
+		a
+			color: $linkColor

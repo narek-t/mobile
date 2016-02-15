@@ -1,0 +1,38 @@
+{
+  "name": "my_blank_template",
+  "version": "1.0.0",
+  "description": "Blank template for frontend developers using gulp 4, sass, jade, gulp, autoprefixer, auto sprite generator and much more",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narek-t/gulp-sass-jade.git"
+  },
+  "author": "Narek Tarverdyan http://narekweb.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/narek-t/gulp-sass-jade.git/issues"
+  },
+  "homepage": "https://github.com/narek-t/gulp-sass-jade.git#readme",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.2",
+    "gulp.spritesmith": "^6.0.1",
+    "merge-stream": "^1.0.0"
+  },
+  "dependencies": {
+    "del": "^2.2.0"
+  }
+}
