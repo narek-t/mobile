@@ -1,7 +1,7 @@
 {
   "name": "my_blank_template",
   "version": "1.0.0",
-  "description": "Blank template for frontend developers using gulp 4, sass, jade, gulp, autoprefixer, auto sprite generator and much more",
+  "description": "Blank template for frontend developers using gulp 4, sass, jade, autoprefixer, auto sprite generator and much more",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/narek-t/gulp-sass-jade.git"
   },
-  "author": "Narek Tarverdyan http://narekweb.com",
+  "author": "Narek Tarverdyan https://narekweb.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/narek-t/gulp-sass-jade.git/issues"
