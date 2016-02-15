@@ -1,5 +1,9 @@
 'use strict';
 
+// -------------------------------------
+//   devDependencies
+// -------------------------------------
+
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
@@ -16,7 +20,10 @@ const uglify = require('gulp-uglify');
 const spritesmith = require('gulp.spritesmith');
 const merge = require('merge-stream');
 
-//error message
+// --------------------------------------------
+//  Error message
+// --------------------------------------------
+
 const onError = function(err) {
 	notify.onError({
 		title: "Gulp",
@@ -27,7 +34,9 @@ const onError = function(err) {
 	this.emit('end');
 };
 
-//styles
+// --------------------------------------------
+//  Task: compile, minify, autoprefix sass/scss
+// --------------------------------------------
 gulp.task('styles', function() {
 	return gulp.src('dev/sass/*.{sass,scss}')
 		.pipe(plumber({
@@ -49,7 +58,10 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest('public/css/'));
 });
 
-//jade
+// --------------------------------------------
+//  Task: compile Jade to HTML
+// --------------------------------------------
+
 gulp.task('jade', function() {
 	return gulp.src('dev/templates/**/!(_)*.jade')
 		.pipe(plumber({
@@ -61,7 +73,10 @@ gulp.task('jade', function() {
 		.pipe(gulp.dest('public'));
 });
 
-//scripts
+// --------------------------------------------
+//  Task: Minify, concat JavaScript files
+// --------------------------------------------
+
 gulp.task('scripts', function() {
 	return gulp.src('dev/js/**/*.js')
 		.pipe(plumber({
@@ -74,13 +89,19 @@ gulp.task('scripts', function() {
 		.pipe(gulp.dest('public/js'));
 });
 
-//fonts
+// --------------------------------------------
+//  Task: Move font files to public
+// --------------------------------------------
+
 gulp.task('fonts', function() {
 	return gulp.src('dev/fonts/**/*.{ttf,woff,eot,svg,otf}')
 		.pipe(gulp.dest('public/fonts'));
 });
 
-//sprites
+// --------------------------------------------
+//  Task: Creating sprites
+// --------------------------------------------
+
 gulp.task('sprites', function() {
 	var spriteData = gulp.src('dev/img/sprites/*.{png,jpg}')
 		.pipe(spritesmith({
@@ -98,21 +119,36 @@ gulp.task('sprites', function() {
 	return merge(imgStream, cssStream);
 
 });
-// images
+
+// --------------------------------------------
+//  Task: Move images to public
+// --------------------------------------------
+
 gulp.task('images', function() {
 	return gulp.src(['dev/img/**/*', '!dev/img/{sprites,sprites/**}'])
 		.pipe(gulp.dest('public/img'));
 });
-// bs-reload
+
+// --------------------------------------------
+//  Task: Browser reload
+// --------------------------------------------
+
 gulp.task('bs-reload', function() {
 	browserSync.reload();
 });
-//clean
+
+// --------------------------------------------
+//  Task: Deleting public
+// --------------------------------------------
+
 gulp.task('clean', function() {
 	return del('public');
 });
 
-//watch
+// --------------------------------------------
+//  Task: Watch
+// --------------------------------------------
+
 gulp.task('watch', function() {
 	gulp.watch('dev/sass/**/*.*', gulp.series('styles', 'bs-reload'));
 	gulp.watch('dev/templates/**/*.*', gulp.series('jade', 'bs-reload'));
@@ -122,19 +158,28 @@ gulp.task('watch', function() {
 	gulp.watch('dev/fonts/**/*.{ttf,woff,eot,svg,otf}', gulp.series('fonts', 'bs-reload'));
 });
 
-// build
+// --------------------------------------------
+//  Task: Build
+// --------------------------------------------
+
 gulp.task('build', gulp.series(
 	'clean',
 	gulp.parallel('styles', 'jade', 'scripts', 'fonts', 'sprites', 'images')));
 
-//server
+// --------------------------------------------
+//  Task: Basic server
+// --------------------------------------------
+
 gulp.task('server', function() {
 	browserSync.init({
 		server: 'public'
 	});
 });
 
-//development
+// --------------------------------------------
+//  Task: Development
+// --------------------------------------------
+
 gulp.task('dev',
 	gulp.series('build', gulp.parallel('watch', 'server'))
 );
