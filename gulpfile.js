@@ -55,7 +55,10 @@ gulp.task('styles', function() {
 		}))
 		.pipe(cssnano())
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('public/css/'));
+		.pipe(gulp.dest('public/css/'))
+		.pipe(browserSync.reload({
+			stream: true
+		}));
 });
 
 // --------------------------------------------
@@ -150,7 +153,7 @@ gulp.task('clean', function() {
 // --------------------------------------------
 
 gulp.task('watch', function() {
-	gulp.watch('dev/sass/**/*.*', gulp.series('styles', 'bs-reload'));
+	gulp.watch('dev/sass/**/*.*', gulp.series('styles'));
 	gulp.watch('dev/templates/**/*.*', gulp.series('jade', 'bs-reload'));
 	gulp.watch('dev/js/**/*.*', gulp.series('scripts', 'bs-reload'));
 	gulp.watch('dev/img/sprites/*.{png,jpg}', gulp.series('sprites', 'bs-reload'));
