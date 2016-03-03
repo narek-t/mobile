@@ -3,6 +3,7 @@ $(document).ready(function() {
     $(".main-nav").removeClass('visible');
     $("button.main-nav__btn").removeClass('active');
     $(".shadow").removeClass('visible');
+    $("body").removeClass('overflow-hidden');
   }
   $(".shadow").click(function() {
     removeVisibility();
@@ -14,6 +15,7 @@ $(document).ready(function() {
       $(this).addClass('active');
       $(".main-nav").addClass('visible');
       $(".shadow").addClass('visible');
+      $("body").addClass('overflow-hidden');
     }
   });
 
@@ -27,16 +29,24 @@ $(document).ready(function() {
   });
 
   //search box
-
   $("button.search__btn").click(function() {
     if ($(this).hasClass('active')) {
       $(this).removeClass('active');
       $(".search__layout").removeClass('visible');
+      $("body").removeClass('overflow-hidden');
     } else {
       $(this).addClass('active');
       $(".search__layout").addClass('visible');
+      $("body").addClass('overflow-hidden');
     }
-
   });
+
+  //scrollfix
+  document.addEventListener('touchmove', function(event) {
+    if (event.target.parentNode.className.indexOf('noBounce') != -1 ||
+      event.target.className.indexOf('noBounce') != -1) {
+      event.preventDefault();
+    }
+  }, false);
 
 });
