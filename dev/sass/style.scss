@@ -29,6 +29,7 @@ html, body {
 
 .overflow-hidden {
   overflow: hidden;
+  position: fixed;
 }
 
 //header
@@ -39,6 +40,8 @@ html, body {
   height: 50px;
   z-index: 100;
   top: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   .shadow {
     position: fixed;
     background: rgba(0, 0, 0, .5);
@@ -73,7 +76,7 @@ html, body {
   height: 100%;
   top: 50px;
   overflow: auto;
-  transition: left .3s ease-in-out;
+  transition: left .2s ease-in-out;
   &.visible {
     left: 0;
   }

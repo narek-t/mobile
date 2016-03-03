@@ -3,7 +3,7 @@ $(document).ready(function() {
     $(".main-nav").removeClass('visible');
     $("button.main-nav__btn").removeClass('active');
     $(".shadow").removeClass('visible');
-    $("body").removeClass('overflow-hidden');
+    $(".all-wrapper").removeClass('overflow-hidden');
   }
   $(".shadow").click(function() {
     removeVisibility();
@@ -15,7 +15,7 @@ $(document).ready(function() {
       $(this).addClass('active');
       $(".main-nav").addClass('visible');
       $(".shadow").addClass('visible');
-      $("body").addClass('overflow-hidden');
+      $(".all-wrapper").addClass('overflow-hidden');
     }
   });
 
@@ -33,11 +33,11 @@ $(document).ready(function() {
     if ($(this).hasClass('active')) {
       $(this).removeClass('active');
       $(".search__layout").removeClass('visible');
-      $("body").removeClass('overflow-hidden');
+      $(".all-wrapper").removeClass('overflow-hidden');
     } else {
       $(this).addClass('active');
       $(".search__layout").addClass('visible');
-      $("body").addClass('overflow-hidden');
+      $(".all-wrapper").addClass('overflow-hidden');
     }
   });
 
